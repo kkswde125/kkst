@@ -145,5 +145,14 @@ public class UserController {
 	}
 	
 	
+	@RequestMapping(value="test.do")
+	public String test(Locale locale, Model model,String[] seq) {
+		
+		System.out.println(seq);
+		
+		return "";
+	}
+	
+	
 	
 }

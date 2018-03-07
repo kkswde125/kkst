@@ -143,7 +143,7 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
 </table>
 </div>
 
-<form action="">
+<form action="test.do">
 
 
 
