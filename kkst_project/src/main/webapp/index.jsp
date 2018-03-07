@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="kkstController.do?command=reslist&cate=한식">메뉴추천</a>
-	<a href="kkstController.do?command=food">푸드올림픽</a>
+	<a href="reslist.do?cate=한식">메뉴추천</a>
+	<a href="olympic.do">푸드올림픽</a>
 </body>
 </html>
