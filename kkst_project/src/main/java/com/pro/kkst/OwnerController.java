@@ -26,8 +26,8 @@ public class OwnerController {
 	@Autowired
 	private I_OwnerService ownerServ;
 	
-	@RequestMapping(value = "home3.do", method = RequestMethod.GET)
-	public String home3(Locale locale, Model model) {
+	@RequestMapping(value = "home1.do", method = RequestMethod.GET)
+	public String home1(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -37,7 +37,7 @@ public class OwnerController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home3";
+		return "home1";
 	}
 	
 }
