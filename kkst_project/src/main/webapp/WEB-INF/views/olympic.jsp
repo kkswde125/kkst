@@ -41,7 +41,7 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
 
    function load() {
       
-      for (var i = 2; i < 16; i++) {
+      for (var i = 2; i < 32; i++) {
          $("#tab"+i).hide();
     
       }
@@ -55,10 +55,10 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
    }
    function restart(){
          
-      for (var i = 0; i < 16; i++) {
+      for (var i = 0; i < 32; i++) {
          $(".td"+i).show();
       }
-      for (var i = 2; i < 16; i++) {
+      for (var i = 2; i < 32; i++) {
          $("#tab"+i).hide();
       }
       }

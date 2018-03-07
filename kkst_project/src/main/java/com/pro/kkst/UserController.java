@@ -64,7 +64,7 @@ public class UserController {
 		List<menuDto> lists1=userServ.menuList();
 		List<menuDto> lists2=null;
 		
-		int[]seqs=new int[16];
+		int[]seqs=new int[32];
 		
 		
 		int num=0;
