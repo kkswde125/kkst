@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pro.kkst">
-	
+
+<select id="ResList" parameterType="String" resultType="ResDto">
+SELECT SEQ,NAME,CATE,ADDR,"CALL","START","END",REST_START,REST_END,PARKING,"OPEN",CHK,"COMMENT",X,Y 
+FROM RESLIST WHERE CATE=#{cate}
+</select>
+
+<select id="menulist" resultType="menuDto">
+SELECT SEQ,NAME,CODE,RES_SEQ,PRICE FROM MENULIST
+</select>
+
+<select id="foodchosse" parameterType="Map" resultType="menuDto">
+SELECT SEQ,NAME,CODE,RES_SEQ,PRICE FROM MENULIST WHERE SEQ IN 
+<foreach collection="Rseq" item="seq" open="(" separator="," close=")">
+#{seq}
+</foreach>
+</select>
 
 </mapper>
