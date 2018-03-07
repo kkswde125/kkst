@@ -2,14 +2,23 @@ package com.pro.kkst;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.pro.kkst.dtos.ResDto;
+import com.pro.kkst.dtos.menuDto;
+import com.pro.kkst.imp.KkstMenuService;
+import com.pro.kkst.imp.KkstResService;
 
 /**
  * Handles requests for the application home page.
@@ -17,11 +26,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
+	@Autowired
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	@Autowired
+	private KkstResService resservice;
+	@Autowired
+	private KkstMenuService menuservice;
+	
 	@RequestMapping(value = "home.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -36,4 +48,102 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "reslist.do")
+	public String reslist(Locale locale, Model model,String cate) {
+		
+		List<ResDto> lists =resservice.ResList(cate);
+		
+		model.addAttribute("lists",lists);
+		
+		
+		return "index3";
+	}
+	
+	@RequestMapping(value="olympic.do")
+	public String olympic(Locale locale, Model model) {
+		
+		List<menuDto> lists1=menuservice.menuList();
+		List<menuDto> lists2=null;
+		
+		int[]seqs=new int[16];
+		
+		
+		int num=0;
+		boolean chk=true;
+		for (int i = 0; i <seqs.length; i++) {
+				chk=true;
+			while (chk) {
+				
+				num = (int)(Math.random()*lists1.size()+1);
+				
+				if (i>0) {
+					
+					for (int j = 0; j < seqs.length; j++) {
+						if (seqs[j]==num) {
+							chk=true;
+							break;
+						}else {
+							chk=false;
+						}
+					}
+					
+				}else {
+					break;
+				}
+				
+				System.out.println(num);
+				
+			}
+			
+			seqs[i]= num;
+			
+		}
+		
+		Map<String,int[]>map =new HashMap<String,int[]>();
+		map.put("Rseq", seqs);
+		
+		
+		lists2=menuservice.food(map);
+		
+		model.addAttribute("lists",lists2);
+		
+		return "food";
+	}
+	
+/*	@RequestMapping(value="randomFood.do")
+	public String randomFood(Locale locale, Model model,String seq) {
+		
+		int[] seqs = new int[2];
+		List<menuDto> lists1= menuservice.menuList();
+			
+			seqs[0]=(int)(Math.random()*lists1.size()+1);
+			seqs[1]=Integer.parseInt(seq);
+		Map<String,int[]>map =new HashMap<String,int[]>();
+		map.put("Rseq", seqs);
+		
+		List<menuDto> lists2=menuservice.food(map);
+		
+		
+		model.addAttribute("lists", lists2);
+		
+		
+		
+		return "food";
+	}*/
+	
+	@RequestMapping(value="winner.do")
+	public String winner(Locale locale, Model model,String seq) {
+		int[] seqs = new int[1]; 
+		seqs[0]=Integer.parseInt(seq);
+		
+		Map<String,int[]>map =new HashMap<String,int[]>();
+		map.put("Rseq", seqs);
+		
+		List<menuDto> lists = menuservice.food(map);
+		
+		model.addAttribute("lists1", lists);
+			
+		
+		return "winner";
+	}
 }
