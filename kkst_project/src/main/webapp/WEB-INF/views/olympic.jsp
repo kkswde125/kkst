@@ -35,17 +35,21 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
    int count=0;
 %>
 
-	$(window).
+	
+
+
 
    function load() {
       
       for (var i = 2; i < 16; i++) {
          $("#tab"+i).hide();
+    
       }
       
-      var arrayT=null;
-      var arrayH=null;
-      
+
+     window.onload=function(){
+
+     }
 
       
    }
@@ -70,29 +74,34 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
          $("#tab"+(i+2)).show();
          $("#tab"+(i+3)).show();
 
-         
-        
-        arrayT=[];
-         
-         arrayT.push(seq);
-         alert("짝수배열:"+arrayT);
- 
-         
-         
+         arrays(seq);
       }      
       else if(i==1||i%2==1){
          $(".td"+(i-1)).hide();
          $(".td"+i).hide();
          $("#tab"+(i+1)).show();
          $("#tab"+(i+2)).show();
-         
-         arrayH=[];
-         
-         arrayH.push(seq);
-         
-         alert("홀수 배열:"+arrayH);
+
+         arrays(seq);
       
       }
+      
+      function arrays(seq) {
+       	  var arrayH=new Array();
+    	  var arrayT=new Array();
+    	  
+    	  if (i==1||i%2==1) {
+			$("<input type='hidden' name='choiceSeq' />").append("form").attr("value",seq);
+    	  }
+    	  
+    	  if (i==0||i%2==0) {
+    		  $("<input type='hidden' name='choiceSeq' />").append("form").attr("value",seq);
+		}
+    	  
+
+	}
+      
+      
    }
    
 </script>
@@ -131,6 +140,15 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
    
 </table>
 </div>
+
+<form action="">
+
+
+
+<input type="submit" value="결승으로 가기" />
+
+</form>
+
 <input type="button" value="다시하기" onclick="restart()">
 
 </body>
