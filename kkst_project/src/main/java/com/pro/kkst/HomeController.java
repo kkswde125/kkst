@@ -56,7 +56,7 @@ public class HomeController {
 		model.addAttribute("lists",lists);
 		
 		
-		return "index3";
+		return "resMap";
 	}
 	
 	@RequestMapping(value="olympic.do")
@@ -107,7 +107,7 @@ public class HomeController {
 		
 		model.addAttribute("lists",lists2);
 		
-		return "food";
+		return "olympic";
 	}
 	
 /*	@RequestMapping(value="randomFood.do")
