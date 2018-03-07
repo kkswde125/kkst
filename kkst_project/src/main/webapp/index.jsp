@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+<%request.setCharacterEncoding("utf-8"); %>
+<%response.setContentType("text/html; charset=utf-8"); %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-index.jsp를 추가했어요
-경수씨~~~
-
-담배피러가시죠 ^^
-
-<a href="#">클릭클릭</a>
-
+<a href="home.do">클릭</a>
 </body>
 </html>
