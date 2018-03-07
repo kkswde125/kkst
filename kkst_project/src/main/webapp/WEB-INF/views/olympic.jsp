@@ -34,11 +34,20 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
 <%!
    int count=0;
 %>
+
+	$(window).
+
    function load() {
       
       for (var i = 2; i < 16; i++) {
          $("#tab"+i).hide();
       }
+      
+      var arrayT=null;
+      var arrayH=null;
+      
+
+      
    }
    function restart(){
          
@@ -50,7 +59,7 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
       }
       }
    
-   function clickings(i) {
+   function clickings(i,seq) {
       
       //0 , 짝수 일때 i+2 or i+3
       // 홀수 일때 i+1 or i+2
@@ -60,12 +69,28 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
          $(".td"+(i+1)).hide();
          $("#tab"+(i+2)).show();
          $("#tab"+(i+3)).show();
+
+         
+        
+        arrayT=[];
+         
+         arrayT.push(seq);
+         alert("짝수배열:"+arrayT);
+ 
+         
+         
       }      
       else if(i==1||i%2==1){
          $(".td"+(i-1)).hide();
          $(".td"+i).hide();
          $("#tab"+(i+1)).show();
          $("#tab"+(i+2)).show();
+         
+         arrayH=[];
+         
+         arrayH.push(seq);
+         
+         alert("홀수 배열:"+arrayH);
       
       }
    }
@@ -84,7 +109,7 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
          <td class="td<%=i%>">
             <table id="tab<%=i%>">
                <tr>
-                  <td onclick="clickings(<%=i%>)">
+                  <td onclick="clickings(<%=i%>,<%=lists.get(i).getSeq()%>)">
                      <div id="choice<%=i%>">
                         <img src="img/food1.jpg" />
                      </div>
