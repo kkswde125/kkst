@@ -9,7 +9,10 @@
 	</typeAliases>
 
 <mappers>
-	<mapper resource="/sqls/DataMapper.xml" />
+	<mapper resource="/sqls/UserDataMapper.xml" />
+	<mapper resource="/sqls/AccountDataMapper.xml" />
+	<mapper resource="/sqls/OwnerDataMapper.xml" />
+	<mapper resource="/sqls/AdminDataMapper.xml" />
 </mappers>
 
 </configuration>

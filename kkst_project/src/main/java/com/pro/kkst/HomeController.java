@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.pro.kkst.dtos.ResDto;
 import com.pro.kkst.dtos.menuDto;
-import com.pro.kkst.imp.KkstMenuService;
-import com.pro.kkst.imp.KkstResService;
+import com.pro.kkst.imp.I_UserService;
 
 /**
  * Handles requests for the application home page.
@@ -30,9 +29,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
-	private KkstResService resservice;
-	@Autowired
-	private KkstMenuService menuservice;
+	private I_UserService userServ;
 	
 	@RequestMapping(value = "home.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -51,7 +48,7 @@ public class HomeController {
 	@RequestMapping(value = "reslist.do")
 	public String reslist(Locale locale, Model model,String cate) {
 		
-		List<ResDto> lists =resservice.ResList(cate);
+		List<ResDto> lists =userServ.ResList(cate);
 		
 		model.addAttribute("lists",lists);
 		
@@ -62,7 +59,7 @@ public class HomeController {
 	@RequestMapping(value="olympic.do")
 	public String olympic(Locale locale, Model model) {
 		
-		List<menuDto> lists1=menuservice.menuList();
+		List<menuDto> lists1=userServ.menuList();
 		List<menuDto> lists2=null;
 		
 		int[]seqs=new int[16];
@@ -103,7 +100,7 @@ public class HomeController {
 		map.put("Rseq", seqs);
 		
 		
-		lists2=menuservice.food(map);
+		lists2=userServ.food(map);
 		
 		model.addAttribute("lists",lists2);
 		
@@ -139,7 +136,7 @@ public class HomeController {
 		Map<String,int[]>map =new HashMap<String,int[]>();
 		map.put("Rseq", seqs);
 		
-		List<menuDto> lists = menuservice.food(map);
+		List<menuDto> lists = userServ.food(map);
 		
 		model.addAttribute("lists1", lists);
 			
