@@ -73,8 +73,10 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
          $(".td"+(i+1)).hide();
          $("#tab"+(i+2)).show();
          $("#tab"+(i+3)).show();
+         
+         $("<input type='hidden' name='choiceSeq' />").appendTo("#fo").prop("value",seq);
 
-         arrays(seq);
+//          arrays(seq);
       }      
       else if(i==1||i%2==1){
          $(".td"+(i-1)).hide();
@@ -82,7 +84,9 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
          $("#tab"+(i+1)).show();
          $("#tab"+(i+2)).show();
 
-         arrays(seq);
+         $("<input type='hidden' name='choiceSeq' />").appendTo("#fo").prop("value",seq);
+         
+//          arrays(seq);
       
       }
       
@@ -91,13 +95,11 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
     	  var arrayT=new Array();
     	  
     	  if (i==1||i%2==1) {
-			$("<input type='hidden' name='choiceSeq' />").append("form")
-			$("input[name=choiceSeq]").attr("value",seq);
+			
     	  }
     	  
     	  if (i==0||i%2==0) {
-    		  $("<input type='hidden' name='choiceSeq' />").append("form").attr("value",seq);
-    		  $("input[name=choiceSeq]").attr("value",seq);
+    		
     	  }
     	  
 
@@ -143,7 +145,7 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
 </table>
 </div>
 
-<form action="test.do">
+<form action="test.do" id="fo">
 
 
 

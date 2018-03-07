@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -146,9 +148,16 @@ public class UserController {
 	
 	
 	@RequestMapping(value="test.do")
-	public String test(Locale locale, Model model,String[] seq) {
+	public String test(Locale locale, Model model,String[] choiceSeq) {
+
+			
+		for (int i = 0; i < choiceSeq.length; i++) {
+			
+			System.out.println(choiceSeq[i]);
+		}
 		
-		System.out.println(seq);
+		
+		
 		
 		return "";
 	}
