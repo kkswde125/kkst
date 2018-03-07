@@ -91,12 +91,14 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
     	  var arrayT=new Array();
     	  
     	  if (i==1||i%2==1) {
-			$("<input type='hidden' name='choiceSeq' />").append("form").attr("value",seq);
+			$("<input type='hidden' name='choiceSeq' />").append("form")
+			$("input[name=choiceSeq]").attr("value",seq);
     	  }
     	  
     	  if (i==0||i%2==0) {
     		  $("<input type='hidden' name='choiceSeq' />").append("form").attr("value",seq);
-		}
+    		  $("input[name=choiceSeq]").attr("value",seq);
+    	  }
     	  
 
 	}
