@@ -11,5 +11,9 @@
 <body>
 	<a href="reslist.do?cate=한식">메뉴추천</a>
 	<a href="olympic.do">푸드올림픽</a>
+	<a href="account.do">account</a>
+	<a href="admin.do">admin</a>
+	<a href="owner.do">owner</a>
+	<a href="user.do">user</a>
 </body>
 </html>

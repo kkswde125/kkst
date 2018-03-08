@@ -47,6 +47,26 @@ public class UserController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "user.do")
+	public String goUser() {
+		return "us_user";
+	}
+	
+	@RequestMapping(value = "account.do")
+	public String goAccount() {
+		return "ac_account";
+	}
+	
+	@RequestMapping(value = "owner.do")
+	public String goOwner() {
+		return "ow_owner";
+	}
+	
+	@RequestMapping(value = "admin.do")
+	public String goAdmin() {
+		return "ad_admin";
+	}
+	
 	@RequestMapping(value = "reslist.do")
 	public String reslist(Locale locale, Model model,String cate) {
 		
