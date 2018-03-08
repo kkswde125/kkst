@@ -24,7 +24,6 @@ import com.pro.kkst.utils.Us_Utils;
 public class UserService implements I_UserService {
 	@Autowired
 	private I_UserDao userDao;
-	@Autowired
 	private Us_Utils utils;
 	
 	
