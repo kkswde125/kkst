@@ -52,7 +52,7 @@ public class AccountController {
 		return "ac_retrunAcc";
 	}
 	
-	@RequestMapping(value = "/ac_idRetrun.do")
+	@RequestMapping(value = "/ac_idRetrun.do" ,method = RequestMethod.POST)
 	public String idRetrun(Locale locale, Model model,String name_id, String email_id) {
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("name", name_id);
@@ -61,10 +61,10 @@ public class AccountController {
 			
 			System.out.println(dto);
 			
-			return "";
+			return "ac_Mail";
 	}
 	
-	@RequestMapping(value = "/ac_pwRetrun.do")
+	@RequestMapping(value = "/ac_pwRetrun.do",method = RequestMethod.POST)
 	public String pwRetrun(Locale locale, Model model,String id_pw,String name_pw,String email_pw) {
 		
 		Map<String, String> map = new HashMap<String, String>();
@@ -72,8 +72,8 @@ public class AccountController {
 		map.put("name", name_pw);
 		map.put("email", email_pw);
 		LoginDto dto=accountServ.pw_return(map);
-		System.out.println(dto);
-		return "";
+		model.addAttribute("dto",dto);
+		return "ac_Mail";
 	}
 	
 	

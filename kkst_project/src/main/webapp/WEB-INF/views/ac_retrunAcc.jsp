@@ -12,7 +12,7 @@
 <body>
 
 <div id="idarea">
-<form action="ac_idRetrun.do">
+<form action="ac_idRetrun.do"  method="post">
 <table>
 <tr>
 <th>이름</th>
@@ -31,7 +31,7 @@
 </div>
 <hr>
 <div id="pwarea">
-<form action="ac_pwRetrun.do">
+<form action="ac_pwRetrun.do" method="post">
 <table>
 <tr>
 <th>아이디</th>

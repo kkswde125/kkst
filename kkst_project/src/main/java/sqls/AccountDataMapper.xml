@@ -29,7 +29,7 @@
 	
 	
 	<select id="id_Retrun" parameterType="Map" resultType="LoginDto">
-		SELECT ID,PW,NAME,EMAIL FROM USERS WHERE IN (#{name},#{email})
+		SELECT ID,PW,NAME,EMAIL FROM USERS WHERE NAME=#{name},EMAIL=#{email}
 	</select>
 	
 	<select id="pw_Retrun" parameterType="Map" resultType="LoginDto">
