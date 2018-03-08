@@ -147,19 +147,23 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="test.do")
+	@RequestMapping(value="nextOlympic.do")
 	public String test(Locale locale, Model model,String[] choiceSeq) {
+		int [] seqs= new int[16];
 
-			
 		for (int i = 0; i < choiceSeq.length; i++) {
-			
-			System.out.println(choiceSeq[i]);
-		}
+			seqs[i] = Integer.parseInt(choiceSeq[i]);
+		}	
 		
 		
 		
+		Map<String,int[]>map = new HashMap<String,int[]>();
+		map.put("Rseq",seqs);
+		List<menuDto> lists = userServ.food(map);
 		
-		return "";
+		model.addAttribute("lists",lists);
+		
+		return "olympic";
 	}
 	
 	

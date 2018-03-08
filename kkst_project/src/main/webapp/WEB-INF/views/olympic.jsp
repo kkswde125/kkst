@@ -46,11 +46,9 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
     
       }
       
-
-     window.onload=function(){
-
-     }
-
+      
+      
+      
       
    }
    function restart(){
@@ -68,6 +66,9 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
       //0 , 짝수 일때 i+2 or i+3
       // 홀수 일때 i+1 or i+2
          
+      var lists1 ="<%=lists.size()-1%>";
+      var lists2 ="<%=lists.size()-2%>";
+      
       if (i==0||i%2==0) {
          $(".td"+i).hide();
          $(".td"+(i+1)).hide();
@@ -76,6 +77,14 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
          
          $("<input type='hidden' name='choiceSeq' />").appendTo("#fo").prop("value",seq);
 
+         if(<%=lists.size()==2%>){
+        	 location.href="winner.do?seq="+seq;
+         }
+         
+         if(lists1==i||lists2==i){
+         	$("#fo").css("display", "block");
+         }   
+         
 //          arrays(seq);
       }      
       else if(i==1||i%2==1){
@@ -85,37 +94,34 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
          $("#tab"+(i+2)).show();
 
          $("<input type='hidden' name='choiceSeq' />").appendTo("#fo").prop("value",seq);
+
+         if(<%=lists.size()==2%>){
+        	 location.href="winner.do?seq="+seq;
+         }
          
+         if(lists1==i||lists2==i){
+          	$("#fo").css("display", "block");
+          }  
 //          arrays(seq);
+      } 
       
-      }
-      
-      function arrays(seq) {
-       	  var arrayH=new Array();
-    	  var arrayT=new Array();
-    	  
-    	  if (i==1||i%2==1) {
-			
-    	  }
-    	  
-    	  if (i==0||i%2==0) {
-    		
-    	  }
-    	  
 
 	}
       
       
-   }
    
 </script>
 </head>
 
 <body onload="load()">
 
+<h1>푸드올림픽<%=lists.size()==2?"결승":lists.size()+"강"%></h1>
 <div id="form">
 <table>
 <tr>
+
+		
+
          <%
             for (int i = 0; i < lists.size(); i++) {
          %>
@@ -137,6 +143,7 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
                </tr>
             </table> <%
       } // for
+
 %>
          </td>
 
@@ -145,11 +152,11 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
 </table>
 </div>
 
-<form action="test.do" id="fo">
+<form action="nextOlympic.do" id="fo" style="display: none;">
 
 
 
-<input type="submit" value="결승으로 가기" />
+<input type="submit" value="<%=lists.size()==2?"결승":(lists.size()/2==2?"준결승":lists.size()/2+"강")%>으로 가기" />
 
 </form>
 
