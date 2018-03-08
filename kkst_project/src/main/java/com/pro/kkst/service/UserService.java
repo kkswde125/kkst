@@ -24,7 +24,6 @@ import com.pro.kkst.utils.Us_Utils;
 public class UserService implements I_UserService {
 	@Autowired
 	private I_UserDao userDao;
-	private Us_Utils utils;
 	
 	
 	@Override
@@ -45,6 +44,7 @@ public class UserService implements I_UserService {
 	@Transactional
 	@Override
 	public List<WatchaDto> watchaBox() {
+		Us_Utils utils = new Us_Utils();
 		WatchaDto dto = new WatchaDto();
 		List<WatchaDto> list = new ArrayList<>();
 		Map<String, String> map = new HashMap<>();
@@ -88,6 +88,7 @@ public class UserService implements I_UserService {
 	@Transactional
 	@Override
 	public List<WatchaDto> watchaMoreBox(int user_seq) {
+		Us_Utils utils = new Us_Utils();
 		WatchaDto dto= new WatchaDto();
 		List<WatchaDto> list = new ArrayList<>();
 		List<AttrsDto> lists = new ArrayList<>();
@@ -178,6 +179,7 @@ public class UserService implements I_UserService {
 	@Transactional
 	@Override
 	public List<WatchaDto> watchaMoreMoreBox() {
+		Us_Utils utils = new Us_Utils();
 		WatchaDto dto = new WatchaDto();
 		List<WatchaDto> list = new ArrayList<>();
 		int count=0;
