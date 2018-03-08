@@ -55,7 +55,7 @@ public class UserController {
 		model.addAttribute("lists",lists);
 		
 		
-		return "resMap";
+		return "us_resMap";
 	}
 	
 	@RequestMapping(value="olympic.do")
@@ -106,7 +106,7 @@ public class UserController {
 		
 		model.addAttribute("lists",lists2);
 		
-		return "olympic";
+		return "us_olympic";
 	}
 	
 /*	@RequestMapping(value="randomFood.do")
@@ -143,7 +143,7 @@ public class UserController {
 		model.addAttribute("lists1", lists);
 			
 		
-		return "winner";
+		return "us_winner";
 	}
 	
 	
@@ -163,7 +163,7 @@ public class UserController {
 		
 		model.addAttribute("lists",lists);
 		
-		return "olympic";
+		return "us_olympic";
 	}
 	
 	
