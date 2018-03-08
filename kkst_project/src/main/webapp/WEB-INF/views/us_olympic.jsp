@@ -5,6 +5,7 @@
 <%request.setCharacterEncoding("utf-8"); %>
 <%response.setContentType("text/html; charset=utf-8"); %>
 <% 
+@SuppressWarnings("unchecked")
 List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
 %>
 <!DOCTYPE html>
@@ -78,7 +79,7 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
          $("<input type='hidden' name='choiceSeq' />").appendTo("#fo").prop("value",seq);
 
          if(<%=lists.size()==2%>){
-        	 location.href="winner.do?seq="+seq;
+        	 location.href="us_winner.do?seq="+seq;
          }
          
          if(lists1==i||lists2==i){
@@ -96,7 +97,7 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
          $("<input type='hidden' name='choiceSeq' />").appendTo("#fo").prop("value",seq);
 
          if(<%=lists.size()==2%>){
-        	 location.href="winner.do?seq="+seq;
+        	 location.href="us_winner.do?seq="+seq;
          }
          
          if(lists1==i||lists2==i){
@@ -152,7 +153,7 @@ List<menuDto> lists = (List<menuDto>)request.getAttribute("lists");
 </table>
 </div>
 
-<form action="nextOlympic.do" id="fo" style="display: none;">
+<form action="us_nextOlympic.do" id="fo" style="display: none;">
 
 
 

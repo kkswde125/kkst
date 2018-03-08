@@ -17,7 +17,7 @@
 </head>
 <% LoginDto ldto =(LoginDto)request.getSession().getAttribute("ldto");
 if(ldto==null){
-	pageContext.forward("KkstCont.do?command=login");
+	pageContext.forward("ac_login.do");
 }
 
 @SuppressWarnings("unchecked")

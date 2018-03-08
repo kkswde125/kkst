@@ -18,15 +18,14 @@
 <%
 	LoginDto ldto =(LoginDto)request.getSession().getAttribute("ldto");
 	if(ldto==null){
-		pageContext.forward("KkstCont.do?command=login");
+		pageContext.forward("ac_login.do");
 	}
 	@SuppressWarnings("unchecked")
 	List<WatchaDto> list= (List<WatchaDto>)request.getAttribute("list");
 	
 %>
 <body>
-<form action="KkstCont.do" method="post">
-<input type="hidden" name="command" value="getstars">
+<form action="getstars.do" method="post">
 <%
 	for(int i = 0; i < list.size(); i++){
 		%>

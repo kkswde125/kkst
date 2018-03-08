@@ -18,7 +18,7 @@
 <%
 	LoginDto ldto =(LoginDto)request.getSession().getAttribute("ldto");
 	if(ldto==null){
-		pageContext.forward("KkstCont.do?command=login");
+		pageContext.forward("ac_login.do");
 	}
 	@SuppressWarnings("unchecked")
 
@@ -32,6 +32,6 @@
 		<%
 	}
 %>
-<button onclick="location.href='KkstCont.do?command=usermain'">뒤로</button>
+<button onclick="location.href='us_usermain.do'">뒤로</button>
 </body>
 </html>
