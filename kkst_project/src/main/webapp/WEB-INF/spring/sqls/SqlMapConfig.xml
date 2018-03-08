@@ -4,16 +4,21 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.pro.kkst.dtos.menuDto" alias="menuDto"/>
-		<typeAlias type="com.pro.kkst.dtos.ResDto" alias="ResDto"/>
+		<typeAlias type="com.pro.kkst.dtos.menuDto" alias="menuDto" />
+		<typeAlias type="com.pro.kkst.dtos.ResDto" alias="ResDto" />
+		<typeAlias type="com.pro.kkst.dtos.WatchaDto" alias="WatchaDto" />
+		<typeAlias type="com.pro.kkst.dtos.AttrsDto" alias="AttrsDto" />
+		<typeAlias type="com.pro.kkst.dtos.TasteDto" alias="TasteDto" />
+		<typeAlias type="com.pro.kkst.dtos.MenuzDto" alias="MenuzDto" />
+		<typeAlias type="com.pro.kkst.dtos.LoginDto" alias="LoginDto" />
 	</typeAliases>
 
-<mappers>
-	<mapper resource="/sqls/UserDataMapper.xml" />
-	<mapper resource="/sqls/AccountDataMapper.xml" />
-	<mapper resource="/sqls/OwnerDataMapper.xml" />
-	<mapper resource="/sqls/AdminDataMapper.xml" />
-</mappers>
+	<mappers>
+		<mapper resource="/sqls/UserDataMapper.xml" />
+		<mapper resource="/sqls/AccountDataMapper.xml" />
+		<mapper resource="/sqls/OwnerDataMapper.xml" />
+		<mapper resource="/sqls/AdminDataMapper.xml" />
+	</mappers>
 
 </configuration>
 
