@@ -11,6 +11,7 @@
 		<typeAlias type="com.pro.kkst.dtos.TasteDto" alias="TasteDto" />
 		<typeAlias type="com.pro.kkst.dtos.MenuzDto" alias="MenuzDto" />
 		<typeAlias type="com.pro.kkst.dtos.LoginDto" alias="LoginDto" />
+		<typeAlias type="com.pro.kkst.dtos.ReviewDto" alias="ReviewDto" />
 	</typeAliases>
 
 	<mappers>

@@ -2,7 +2,10 @@ package com.pro.kkst;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.pro.kkst.dtos.LoginDto;
 import com.pro.kkst.imp.I_AdminService;
 
 /**
@@ -26,18 +30,43 @@ public class AdminController {
 	@Autowired
 	private I_AdminService adminServ;
 	
-	@RequestMapping(value = "home3.do", method = RequestMethod.GET)
-	public String home3(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	@RequestMapping(value = "ad_memberList.do", method = RequestMethod.GET)
+	public String memberList(Model model) {
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		List<LoginDto> lists = adminServ.memberList();
 		
-		String formattedDate = dateFormat.format(date);
+		model.addAttribute("lists", lists);
 		
-		model.addAttribute("serverTime", formattedDate );
+		return "ad_memberList";
+	}
+	
+	@RequestMapping(value = "ad_reviewList.do", method = RequestMethod.GET)
+	public String reviewList(Locale locale, Model model) {
+		
 		
 		return "home3";
 	}
 	
+	@RequestMapping(value = "ad_restList.do", method = RequestMethod.GET)
+	public String restList(Locale locale, Model model) {
+		
+		
+		return "home3";
+	}
+	
+	@RequestMapping(value = "ad_memDel.do", method = RequestMethod.POST)
+	public String memDel(Locale locale, HttpServletRequest request) {
+		String[] seqs = request.getParameterValues("chk");
+		
+		boolean isS = adminServ.memberDel(seqs);
+		
+		if(isS) {
+			return "redirect:ad_memberList.do";
+		}else {
+			
+			return "ad_memberList.do";
+		}
+		
+	}
+
 }
