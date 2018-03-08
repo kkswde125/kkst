@@ -15,13 +15,11 @@ public class AccountDao implements I_AccountDao {
 	
 	@Autowired
 	SqlSessionTemplate sqlSessoin;
-	
-	@Autowired
-	private String namespace="com.pro.account.";
+	String namespace="com.pro.account.";
 	
 	@Override
 	public List<LoginDto> userList() {
-		return null;
+	return null;
 	}
 	@Override
 	public LoginDto id_return(Map<String, String> map) {
