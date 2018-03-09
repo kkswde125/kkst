@@ -8,7 +8,7 @@ import com.pro.kkst.dtos.LoginDto;
 public interface I_AccountService {
 
 	public List<LoginDto> userList();
-	public LoginDto id_return(Map<String, String> map);
-	public LoginDto pw_return(Map<String, String> map);
+	public List<LoginDto> id_return(Map<String, String> map);
+	public List<LoginDto> pw_return(Map<String, String> map);
 	
 }

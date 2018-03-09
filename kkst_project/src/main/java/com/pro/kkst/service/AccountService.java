@@ -21,12 +21,12 @@ public class AccountService implements I_AccountService {
 	}
 
 	@Override
-	public LoginDto id_return(Map<String, String> map) {
+	public List<LoginDto> id_return(Map<String, String> map) {
 		return accountDao.id_return(map);
 	}
 
 	@Override
-	public LoginDto pw_return(Map<String, String> map) {
+	public List<LoginDto> pw_return(Map<String, String> map) {
 		return accountDao.pw_return(map);
 	}
 

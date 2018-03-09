@@ -3,6 +3,7 @@ package com.pro.kkst;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -52,14 +53,15 @@ public class AccountController {
 		return "ac_retrunAcc";
 	}
 	
-	@RequestMapping(value = "/ac_idRetrun.do" ,method = RequestMethod.POST)
+	@RequestMapping(value = "/ac_idRetrun.do",method = RequestMethod.POST)
 	public String idRetrun(Locale locale, Model model,String name_id, String email_id) {
 			Map<String, String> map = new HashMap<String, String>();
 			map.put("name", name_id);
 			map.put("email", email_id);
-			LoginDto dto=accountServ.id_return(map);
+			List<LoginDto>lists=accountServ.id_return(map);
 			
-			System.out.println(dto);
+			System.out.println(lists);
+			model.addAttribute("lists",lists);
 			
 			return "ac_Mail";
 	}
@@ -71,8 +73,8 @@ public class AccountController {
 		map.put("id", id_pw);
 		map.put("name", name_pw);
 		map.put("email", email_pw);
-		LoginDto dto=accountServ.pw_return(map);
-		model.addAttribute("dto",dto);
+		List<LoginDto>lists=accountServ.pw_return(map);
+		model.addAttribute("lists",lists);
 		return "ac_Mail";
 	}
 	

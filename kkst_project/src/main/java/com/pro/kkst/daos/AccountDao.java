@@ -22,16 +22,14 @@ public class AccountDao implements I_AccountDao {
 	return null;
 	}
 	@Override
-	public LoginDto id_return(Map<String, String> map) {
-		LoginDto dto = new LoginDto();
-		dto=sqlSessoin.selectOne(namespace+"id_Retrun"+ map);
-		return dto;
+	public List<LoginDto> id_return(Map<String, String> map) {
+		List<LoginDto>lists=sqlSessoin.selectList(namespace+"id_Retrun",map);
+		return lists;
 	}
 	@Override
-	public LoginDto pw_return(Map<String, String> map) {
-		LoginDto dto = new LoginDto();
-		dto=sqlSessoin.selectOne(namespace+"pw_Retrun"+ map);
-		return dto;
+	public List<LoginDto> pw_return(Map<String, String> map) {
+		List<LoginDto>lists=sqlSessoin.selectList(namespace+"pw_Retrun",map);
+		return lists;
 	}
 
 }
