@@ -2,8 +2,8 @@
 # Created by https://www.gitignore.io/api/java,windows,eclipse
 
 ### Eclipse ###
-pom.properties
-manifest.mf
+*.properties
+*.mf
 .metadata
 bin/
 tmp/
